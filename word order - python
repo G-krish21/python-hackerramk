@@ -1,0 +1,17 @@
+import sys
+_ = sys.stdin.readline()
+words = sys.stdin.read().split()
+
+d = dict()
+order = 0
+for word in words:
+    if word in d:
+        d[word] = (d[word][0], d[word][1] + 1)
+    else:
+        d[word] = (order, 1)
+        order += 1
+
+print(len(d))
+ordered_counts = sorted(d.values())
+for order, count in ordered_counts:
+    print(count, end=' ')
